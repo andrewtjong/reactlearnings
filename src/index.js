@@ -1,12 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
-
+import {BrowserRouter as Router} from "react-router-dom"
 import App from "./App"
-import {ThemeContextProvider} from "./themeContext"
 
 ReactDOM.render(
-    <ThemeContextProvider>
+    <Router>
         <App />
-    </ThemeContextProvider>, 
+    </Router>, 
     document.getElementById("root")
 )

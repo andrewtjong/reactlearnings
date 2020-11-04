@@ -1,27 +1,26 @@
-import React, {useState, useEffect} from "react"
-import randomcolor from "randomcolor"
+import React from "react"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
+import Profile from "./pages/profile/Profile"
+import Info from "./pages/profile/Info"
+import Settings from "./pages/profile/Settings"
 
-function App() {
-    const [count, setCount] = useState(0)
-    const [color, setColor] = useState("")
-    
-    function increment() {
-        setCount(prevCount => prevCount + 1)
-    }
-    
-    function decrement() {
-        setCount(prevCount => prevCount - 1)
-    }
-    
-    useEffect(() => {
-        setColor(randomcolor())
-    }, [count])
-    
+import {Switch, Route} from "react-router-dom"
+
+function App() {    
     return (
         <div>
-            <h1 style={{color: color}}>{count}</h1>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement}>Decrement</button>
+            <Header />
+            
+            <Switch>
+                <Route exact path="/"><Home /></Route>
+                <Route exact path="/profile"><Profile/></Route>
+                <Route path="/profile/info"><Info /></Route>
+                <Route path="/profile/settings"><Settings /></Route>
+            </Switch>
+            
+            <Footer />
         </div>
     )
 }
